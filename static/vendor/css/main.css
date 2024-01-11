@@ -1,0 +1,124 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../images/background.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;	
+
+}
+
+.t-shirt {
+    position: relative;
+    width: 400px;
+    height: 500px;
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    border-radius: 8px;
+    display: none;
+}
+
+.body {
+    position: absolute;
+    top: 20px;
+    left: 25px;
+    width: 350px;
+    height: 450px;
+
+    z-index: 1; /* Помещаем тело выше рукавов */
+}
+
+.name{
+    color:#000000;
+    font-size: 40px;
+    border-radius: 50px;
+    text-align: center;
+}
+
+.number{
+    position: relative;
+    text-align: center;
+    top: 30px;
+    color: #000000;
+    font-size: 240px;
+    margin-bottom: 40px;
+}
+
+.posit{
+    color:#000000;
+    font-size: 40px;
+    text-align: center;
+}
+
+.flag{
+    position: relative;
+    top: 190px;
+    left: 25px;
+}
+
+.sleeve {
+    position: absolute;
+    top: -225px;
+    width: 120px;
+    height: 260px;
+    background-color: white; /* Цвет рукава */
+    border: 2px solid #000000;
+    border-radius: 20% 20% 0 0;
+}
+
+.sleeve.left {
+    left: -260px;
+    transform: rotate(80deg);
+    transform-origin: 0 100%;
+}
+
+.sleeve.right {
+    right: -260px;
+    transform: rotate(-80deg);
+    transform-origin: 100% 100%;
+}
+
+
+.but1{
+    color:black;
+    font-size: 80px;
+    background-color:rgba(255, 255, 255, 0.2);
+    padding: 40px;
+    position: absolute;
+    left: 52px;
+    top: 240px;
+    border-radius:20px;
+    cursor: pointer;
+}
+
+.but2{
+    color:black;
+    font-size: 80px;
+    background-color:rgba(255, 255, 255, 0.2);
+    padding: 40px;
+    position: absolute;
+    right: 52px;
+    top: 240px;
+    border-radius:20px;
+    cursor: pointer;
+}
+
+.but1:before{
+    content:"<";
+}
+
+.but2:before{
+    content:">";
+}
+
+.but1:hover{
+    color:white;
+    background-color:rgba(0, 0, 0, 0.5);
+}
+
+.but2:hover{
+    color:white;
+    background-color:rgba(0, 0, 0, 0.5);
+}

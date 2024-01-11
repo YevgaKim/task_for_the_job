@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load static %}
+
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link type="Image/x-icon" href={% static 'vendor/images/ball.ico' %} rel="icon">
+  <link href="{% static 'vendor/css/main.css' %}" rel="stylesheet">
+  <title>{{page_name}}</title>
+  
+</head>
+<body>
+  <div class="but1"></div>
+  <div class="but2"></div>
+  {% for f_player in f_players%} 
+  <div class="t-shirt">
+    <div class="body">
+        <div class="name">
+            <b>{{f_player.name}}</b>
+        </div>
+        <div class="number">
+            {{f_player.shirtnumber}}
+        </div>
+        <div class="posit">
+            {{f_player.position}}
+        </div>
+        
+    </div>
+    
+    <div class="sleeve left">
+        <div class="flag"><img src="https://flagsapi.com/{{f_player.nationality}}/flat/64.png"></div>
+    </div>
+    <div class="sleeve right">
+        <div class="flag"><img src="https://flagsapi.com/{{f_player.nationality}}/flat/64.png"></div>
+    </div>
+  </div>
+  {% endfor %}
+  <script src={%static "vendor/js/script.js"%}></script>
+</body>
+</html>
