@@ -5,4 +5,12 @@ P.S.2 если хотите задокеризирую. Связывайтесь
 После того как скачали этот проект - выполняйте шаги ниже
 1. Установите виртуальное окружение
 2. Запустите requirements.txt(pip install -r requirements.txt)
-3. Запустите проект - python manage.py runserver
+3. Выполните 3 команды:
+   - python manage.py makemigrations
+   - python manage.py migrate
+   - python parse.py
+5. Запустите проект - python manage.py runserver
+
+Будут проблемы - пишите в тг @yevgakim
+
+
