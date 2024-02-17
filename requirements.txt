@@ -3,3 +3,4 @@ django-environ
 requests
 psycopg2
 pycountry
+gunicorn

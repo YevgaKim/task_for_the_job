@@ -27,6 +27,15 @@ except Exception as e:
 
 
 
+from pathlib import Path
+import os
+import environ
+
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+env = environ.Env()
+environ.Env.read_env(env_file=os.path.join(BASE_DIR, ".env"))
+
 
 
 
@@ -34,7 +43,7 @@ except Exception as e:
 
 
 try:
-    conn = psycopg2.connect(database="football", user="Evgenius", password="aaaa",port="5432")
+    conn = psycopg2.connect(database=env("POSTGRES_NAME"), user=env("POSTGRES_USER"), password=env("POSTGRES_PASSWORD"),port=env("POSTGRES_PORT"), host=env("POSTGRES_HOST"))
 
     print("Успешно подключено к PostgreSQL")
     cur = conn.cursor()
