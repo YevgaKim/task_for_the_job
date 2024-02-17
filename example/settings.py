@@ -23,7 +23,7 @@ environ.Env.read_env(env_file=os.path.join(BASE_DIR, ".env"))
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "tlsmpynwfxdehbcn9^h46np!ki4vusmzka7@!9f96hq4jk+a"
+SECRET_KEY = env("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "example_1",
+    "environ",
 ]
 
 MIDDLEWARE = [
@@ -79,11 +80,11 @@ WSGI_APPLICATION = 'example.wsgi.application'
 DATABASES = {
     "default":{
         "ENGINE":"django.db.backends.postgresql",
-        "NAME":"football",
-        "USER":"Evgenius",
-        "PASSWORD":"aaaa",
-        "HOST":"localhost",
-        "PORT":5432,
+        "NAME":env("POSTGRES_NAME"),
+        "USER":env("POSTGRES_USER"),
+        "PASSWORD":env("POSTGRES_PASSWORD"),
+        "HOST":env("POSTGRES_HOST"),
+        "PORT":env("POSTGRES_PORT"),
     }
 }
 
@@ -124,6 +125,11 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR/'static']
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

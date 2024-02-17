@@ -1,0 +1,42 @@
+version: '3.9'
+
+services:
+  football:
+    build: .
+    restart: always
+    container_name: football
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    depends_on:
+     - db
+  db:
+    image: postgres:15
+    restart: always
+    container_name: database_for_football
+    ports:
+      - "5432:5432"
+    env_file:
+      - .env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+  nginx:
+    build:
+      context: ./nginx
+    container_name: nginx
+    restart: always
+    volumes:
+      - static:/var/www/static
+    ports:
+      - "443:443"
+    depends_on:
+      - football
+
+
+
+volumes:
+  postgres_data:
+  static:
+
+    
